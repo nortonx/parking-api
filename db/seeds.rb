@@ -13,8 +13,9 @@ Group.create!({
   name: "main",
 })
 
-User.destroy_all
+puts "Created #{Group.count} groups."
 
+User.destroy_all
 
 User.create!([{
   name: "John Doe",
@@ -22,4 +23,29 @@ User.create!([{
   group: Group.first
 }])
 
+23.times do |i|
+  User.create!({
+    name: "User #{i+1}",
+    email: "user_#{i+1}@domain.com",
+    group: Group.first
+  })
+end
+
 puts "Created #{User.count} users."
+
+Garage.create!({
+  name: "Main Garage",
+  location: "123 Main St",
+})
+
+puts "Created #{Garage.count} garages."
+
+15.times do |i|
+  ParkingSpot.create!({
+    name: "Spot #{i+1}",
+    position: i+1,
+    garage: Garage.first
+  })
+end
+
+puts "Created #{ParkingSpot.count} parking spots."
