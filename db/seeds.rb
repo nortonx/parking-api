@@ -9,9 +9,14 @@
 #   end
 Group.destroy_all
 
-Group.create!({
-  name: "main",
-})
+Group.create!([
+  {
+    name: "main",
+  },
+  {
+    name: "waiting-list"
+  }
+])
 
 puts "Created #{Group.count} groups."
 
@@ -33,10 +38,16 @@ end
 
 puts "Created #{User.count} users."
 
-Garage.create!({
-  name: "Main Garage",
-  location: "123 Main St",
-})
+Garage.create!([
+  {
+    name: "Main Garage",
+    location: "123 Main St",
+  },
+  {
+    name: "Second Garage",
+    location: "BH, MG"
+  }
+])
 
 puts "Created #{Garage.count} garages."
 
@@ -49,3 +60,4 @@ puts "Created #{Garage.count} garages."
 end
 
 puts "Created #{ParkingSpot.count} parking spots."
+
