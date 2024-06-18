@@ -6,6 +6,11 @@ if [ -e ${project_root}/.env ]; then
   source ${project_root}/.env
 fi
 
-export COMPOSE_FILE=${COMPOSE_FILE:${project_root}/.devcontainer/docker-compose.yml}
-export COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME:-parking-api}
+export COMPOSE_FILE=${COMPOSE_FILE:-${project_root}/.devcontainer/docker-compose.yml}
+export COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME:-parking-backend}
+
+echo "project root: ${project_root}"
+echo "compose file: $COMPOSE_FILE"
+echo "compose project name: $COMPOSE_PROJECT_NAME"
+
 docker-compose up -d && docker-compose exec app /bin/bash -l "$@"
