@@ -61,3 +61,12 @@ end
 
 puts "Created #{ParkingSpot.count} parking spots."
 
+User.all.each do |user|
+  Car.create!({
+    model: Faker::Vehicle.model,
+    color: Faker::Vehicle.color,
+    plate: Faker::Vehicle.license_plate,
+    user: user
+  })
+end
+puts "Created #{Car.count} cars."
