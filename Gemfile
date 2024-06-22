@@ -6,7 +6,7 @@ ruby "3.2.2"
 gem "rails", "~> 7.1.2"
 
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+# gem "sqlite3", "~> 1.4"
 gem "pg"
 
 # Use the Puma web server [https://github.com/puma/puma]
@@ -41,6 +41,8 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
   gem 'rspec-rails', '~> 5.0'
   gem "faker"
+  gem "factory_bot_rails"
+  gem "rails-controller-testing"
 end
 
 group :development do

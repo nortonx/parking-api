@@ -1,0 +1,22 @@
+databases:
+  - name: parking
+    databaseName: parking
+    user: parking
+    plan: free
+
+services:
+  - type: web
+    name: parking
+    runtime: ruby
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    # predeployCommand: "./bin/render-predeploy.sh" (paid plan only)
+    startCommand: "bundle exec rails server"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase: parking
+        property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: WEB_CONCURRENCY
+        value: 2
