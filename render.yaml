@@ -1,6 +1,6 @@
 databases:
-  - name: parking
-    databaseName: parking
+  - name: parking-db
+    databaseName: parking-db
     user: parking
     plan: free
 
@@ -14,7 +14,7 @@ services:
     startCommand: "bundle exec rails server"
     envVars:
       - key: DATABASE_URL
-        fromDatabase: parking
+        fromDatabase: parking-db
         property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
