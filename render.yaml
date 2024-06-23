@@ -14,8 +14,9 @@ services:
     startCommand: "bundle exec rails server"
     envVars:
       - key: DATABASE_URL
-        fromDatabase: parking-db
-        property: connectionString
+        fromDatabase: 
+          name: parking-db
+          property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
       - key: WEB_CONCURRENCY
